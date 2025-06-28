@@ -1,7 +1,6 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,6 +31,12 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { LoginPage } from './pages/Login/Login.page';
+import Home from './pages/Home/Home.page';
+import FormulariosPage from './pages/Formularios/Formularios.page';
+import RubrosPage from './pages/Rubros/Rubro.page';
+import UserAdministrationPage from './pages/UserAdministrations/userAdministration.page';
+import ResultadosPage from './pages/Resultados/Resultado.page';
 
 setupIonicReact();
 
@@ -39,11 +44,26 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
+        <Route exact path="/login">
+        <LoginPage />
+        </Route>
         <Route exact path="/home">
-          <Home />
+          <Home username="Joaquín" /> 
+        </Route>
+        <Route exact path="/Formularios">
+          <FormulariosPage />
+        </Route>
+        <Route exact path="/Rubros">
+          <RubrosPage />
+        </Route>
+        <Route exact path="/admUsuarios">
+          <UserAdministrationPage/>
+        </Route>
+        <Route exact path="/resultados">
+          <ResultadosPage/>
         </Route>
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/login" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
